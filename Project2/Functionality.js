@@ -1,3 +1,3 @@
-function blur{
+function blur(){
     
 }

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #EAEDED;
+        }
+        .navbar {
+            background-color: #131921;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .navbar .logo {
+            content: url("https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg");
+        }
+        .navbar .logo {
+            width: 100px;
+            margin-right: 20px;
+            color: white;
+        }
+        .navbar input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+        .navbar button {
+            padding: 8px 16px;
+            border: none;
+            background: #febd69;
+            color: #111;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .navbar .nav-links {
+            margin-left: 30px;
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+        .navbar .nav-links span {
+            cursor: pointer;
+        }
+        .hero {
+            background: url('https://images-eu.ssl-images-amazon.com/images/G/31/img24/Fashion/GW/June/Unrec/Onecard/AF-Unrec-3000._CB556288634_.jpg') no-repeat center center/cover;
+            height: 350px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+        }
+        .hero .hero-content {
+            background: rgba(255,255,255,0.9);
+            padding: 20px 40px;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            width: 220px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.2s;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .product-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 12px;
+        }
+        .product-card .title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .product-card .price {
+            color: #B12704;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .product-card button {
+            background: #ffd814;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .product-card button:hover {
+            background: #f7ca00;
+        }
+        .footer {
+            background: #232f3e;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0 10px 0;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+    </style>
+
+    <div class="navbar">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="logo">
+        <input type="text" id="searchInput" placeholder="Search Amazon.in">
+        <button onclick="searchAmazon()">Search</button>
+        <div class="nav-links">
+            <span>Hello, Sign in</span>
+            <span>Returns & Orders</span>
+            <span>Cart</span>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Amazon</h2>
+            <p>Shop deals, electronics, fashion & more!</p>
+        </div>
+    </div>
+
+    <div class="products" id="products">
+        <!-- Product cards will be injected here -->
+    </div>
+
+    <div class="footer">
+        &copy; 2024 Amazon Clone. For educational purposes only.
+    </div>
+
+    <script>
+        const products = [
+            {
+                title: "Echo Dot (4th Gen)",
+                price: "₹3,499",
+                img: "https://m.media-amazon.com/images/I/61MbLLagiVL._AC_UL480_FMwebp_QL65_.jpg"
+            },
+            {
+                title: "Fire TV Stick",
+                price: "₹2,999",
+                img: "https://m.media-amazon.com/images/I/51Da2Zyyw-L._AC_UL480_FMwebp_QL65_.jpg"
+            },
+            {
+                title: "Noise ColorFit Pulse 2",
+                price: "₹1,299",
+                img: "https://m.media-amazon.com/images/I/61epn29QG0L._AC_UL480_FMwebp_QL65_.jpg"
+            },
+            {
+                title: "Samsung Galaxy M14 5G",
+                price: "₹13,490",
+                img: "https://m.media-amazon.com/images/I/81ZSn2rk9WL._AC_UL480_FMwebp_QL65_.jpg"
+            },
+            {
+                title: "boAt Rockerz 450",
+                price: "₹1,499",
+                img: "https://m.media-amazon.com/images/I/61u1VALn6JL._AC_UL480_FMwebp_QL65_.jpg"
+            },
+            {
+                title: "OnePlus Nord Buds 2",
+                price: "₹2,999",
+                img: "https://m.media-amazon.com/images/I/51c+6F7P6GL._AC_UL480_FMwebp_QL65_.jpg"
+            }
+        ];
+
+        function renderProducts(list) {
+            const container = document.getElementById('products');
+            container.innerHTML = '';
+            list.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <img src="${product.img}" alt="${product.title}">
+                    <div class="title">${product.title}</div>
+                    <div class="price">${product.price}</div>
+                    <button onclick="addToCart('${product.title}')">Add to Cart</button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function searchAmazon() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => p.title.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
+        function addToCart(product) {
+            alert(product + " added to cart!");
+        }
+
+        // Initial render
+        renderProducts(products);
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>Registration</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" min="18" max="100" required><br>
+            <label for="profile">LinkedIn profile link</label>
+            <input type="url" id="profile" required><br>
+            <label for="job">Are you a fresher?</label>
+            <input type="checkbox" id="job" required><br>
+            <label for="opportunity">Are you looking for a job?</label>
+            <input type="checkbox" id="opportunity" required><br>
+            <label for="gender">Gender:</label>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="male">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="female"><br>
+            <label for="dob">Date of birth:</label>
+            <input type="date" id="dob"><br>
+            <label for="state">Choose State</label>
+            <select id="state">
+                <option value="">Select your state</option>
+                <option value="">Karnataka</option>
+                <option value="">Tamil Nadu</option>
+                <option value="">Rajasthan</option>
+            </select><br>
+            <!-- Datalist  -->
+            <label for="degree">Degree:</label>
+            <input list="inp" name="" id="degree"><br>
+            <datalist id="inp">
+                <option value="B.Tech"></option>
+                <option value="M.Tech"></option>
+                <option value="BCA"></option>
+            </datalist>
+            <label for="image">Upload Photo</label>
+            <input type="file" name="" id="image"><br>
+            <label for="feedback">Feedback:</label>
+            <textarea name="" id="feedback" cols="50" rows="5"></textarea>
+            <button>Submit</button>
+        </fieldset>
+    </form>
+</body>
+
+</html>

@@ -1,4 +1,215 @@
-.left-nav{
+/* === Base Styles === */
+body {
+    margin: 0;
+    padding: 0;
+    background: #f0f6fc;
+    font-family: Arial, sans-serif;
+}
+
+/* === Layout Containers === */
+.container {
     display: flex;
-    
+    height: 100vh;
+}
+
+/* === Sidebar Styles === */
+.sidebar {
+    width: 220px;
+    background: #eaf2fa;
+    padding: 24px 0 24px 0;
+    overflow-y: auto;
+    border-right: 1px solid #d3dbe6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #b3c6e0 #eaf2fa; /* For Firefox */
+}
+
+/* Sidebar scrollbar for Chrome, Edge, Safari */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background: #b3c6e0;
+    border-radius: 8px;
+}
+.sidebar::-webkit-scrollbar-track {
+    background: #eaf2fa;
+}
+
+/* === Thumbnail List in Sidebar === */
+.thumbnail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* === Individual Thumbnail Styles === */
+.thumbnail {
+    width: 150px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border 0.2s;
+}
+
+/* Highlight selected or hovered thumbnail */
+.thumbnail.selected,
+.thumbnail:hover {
+    border: 2px solid #a1a1ff;
+}
+
+/* === Main Editor Area === */
+.editor-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eaf2fa;
+}
+
+/* === Image Display Area === */
+.image-area {
+    position: relative;
+    background: #222;
+    border-radius: 5%;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Main image styling */
+#main-image {
+    width: 600px;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* === Text Overlay on Image === */
+.image-text {
+    position: absolute;
+    bottom: 32px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    padding: 8px 10px;
+    color: #222;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    min-width: 100px;
+    min-height: 20px;
+    outline: none;
+    max-width: 90%;
+}
+
+/* Text alignment modifiers */
+.image-text.align-left {
+    left: 32px;
+    right: auto;
+    text-align: center;
+    transform: none;
+}
+.image-text.align-center {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    text-align: center;
+}
+.image-text.align-right {
+    right: 32px;
+    left: auto;
+    text-align: center;
+    transform: none;
+}
+
+/* === Controls Sidebar (Right Panel) === */
+.controls {
+    width: 420px;
+    background: #f3e7c2;
+    padding: 40px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* === Card Components for Controls === */
+.card {
+    background: #fff7f0;
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    padding: 24px 32px 24px 32px;
+    margin-bottom: 30px;
+    width: 320px;
+}
+
+/* === Headings in Controls === */
+.font-effects h2,
+.image-effects h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 2rem;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+/* === Labels and Inputs in Controls === */
+.font-effects label,
+.image-effects label {
+    font-size: 1.2rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: block;
+}
+
+.font-effects select,
+.font-effects input[type="number"] {
+    margin-bottom: 12px;
+    width: 100%;
+    padding: 4px 8px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Image effects label tweaks */
+.image-effects label {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+/* === Button Row Styles === */
+.button-row {
+    display: flex;
+    gap: 18px;
+    margin-top: 8px;
+    justify-content: flex-start;
+    width: 100%;
+    margin-left: 32px;
+}
+
+.button-row button {
+    background: #e6eaff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background 0.2s;
+}
+
+.button-row button:hover {
+    background: #d1d8ff;
 }

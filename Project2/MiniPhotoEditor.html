@@ -1,24 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Photo Editor</title>
-    <link rel="stylesheet" href="Styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Photo Editor</title>
+  <link rel="stylesheet" href="Styles.css">
 </head>
+
 <body>
-    <div class="left-nav">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-        <img src="" alt="">
-    </div>
-    <div class="canvas">
-
-    </div>
-    <div class="control-panel">
-
-    </div>
+  <!-- Main container for the photo editor layout -->
+  <div class="container">
+    <!-- Sidebar with image thumbnails -->
+    <aside class="sidebar">
+      <div class="thumbnail-list">
+        <!-- Thumbnail images for selection -->
+        <img src="https://t3.ftcdn.net/jpg/01/18/09/04/240_F_118090481_nhnEzJixwzuAVk5f0ynZ9p3pAswOxTWb.jpg"
+          class="thumbnail" alt="thumb1">
+        <img
+          src="https://media.istockphoto.com/id/1458782106/photo/scenic-aerial-view-of-the-mountain-landscape-with-a-forest-and-the-crystal-blue-river-in.jpg?s=612x612&w=0&k=20&c=NXQ_OK6JtmyRRBef8Wd67UZ3scQJKySkXl1ORaActH4="
+          class="thumbnail" alt="thumb2">
+        <img
+          src="https://media.istockphoto.com/id/483724081/photo/yosemite-valley-landscape-and-river-california.jpg?s=612x612&w=0&k=20&c=QQ7rvq0Qbfpkug1Wbd36PGqkOntoPFKWxiE4w4tV-NE="
+          class="thumbnail" alt="thumb3">
+        <img
+          src="https://media.istockphoto.com/id/495508534/photo/aerial-view-on-spacious-pine-forest-at-sunrise.jpg?s=612x612&w=0&k=20&c=NUGzlDoCT9JzRtZW3Z8fGIImOZZhA4bBSHiTKQgHJHU="
+          class="thumbnail" alt="thumb4">
+        <img
+          src="https://media.istockphoto.com/id/471926619/photo/moraine-lake-at-sunrise-banff-national-park-canada.jpg?s=612x612&w=0&k=20&c=mujiCtVk5QA697SD3d8V8BGmd91-8HlxCNHkolEA0Bo="
+          class="thumbnail" alt="thumb5">
+        <img
+          src="https://media.istockphoto.com/id/697613666/photo/autumn-path-by-the-lake.jpg?s=612x612&w=0&k=20&c=tA91ewcrbP_w-Jk1Zjm-tB9e-0dLjo3LQr5D7paT4VQ="
+          class="thumbnail" alt="thumb3">
+        <img
+          src="https://media.istockphoto.com/id/186534154/photo/winter-landscape-with-beautiful-reflection-in-the-water.jpg?s=612x612&w=0&k=20&c=h-l-OAMszS3e2Hbu_EE99CJKRt6P-uelAXhT_zWEVDo="
+          class="thumbnail" alt="thumb4">
+        <img
+          src="https://media.istockphoto.com/id/584248074/photo/sunrise-over-mt-hood-at-trillium-lake.jpg?s=612x612&w=0&k=20&c=SphRF0izMKMS-efnhwdzn9anM9HtzXEhGAb2fKdkHY8="
+          class="thumbnail" alt="thumb5">
+        <img
+          src="https://media.istockphoto.com/id/501057465/photo/himalaya-mountains-covered-in-mist-and-fog.jpg?s=612x612&w=0&k=20&c=2dyNO0Qgr0yBPf6LCE6hopkn56vFALPZjFBICgTGy0k="
+          class="thumbnail" alt="thumb6">
+      </div>
+    </aside>
+    <!-- Main editor area -->
+    <main class="editor-main">
+      <div class="image-area">
+        <!-- Main image to edit -->
+        <img id="main-image"
+          src="https://media.istockphoto.com/id/471926619/photo/moraine-lake-at-sunrise-banff-national-park-canada.jpg?s=612x612&w=0&k=20&c=mujiCtVk5QA697SD3d8V8BGmd91-8HlxCNHkolEA0Bo="
+          alt="Main" />
+        <!-- Editable text overlay on the image -->
+        <div id="image-text" class="image-text" contenteditable="true">Ameen farooqi</div>
+      </div>
+    </main>
+    <!-- Controls section for editing -->
+    <section class="controls">
+      <!-- Font effects controls -->
+      <div class="font-effects card">
+        <h2>Font Effects</h2>
+        <label for="font-family">font family</label>
+        <select id="font-family">
+          <option value="">Select a Font</option>
+          <option value="Arial">Arial</option>
+          <option value="Courier New">Courier New</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Verdana">Verdana</option>
+        </select>
+        <br>
+        <label for="font-size">font size</label>
+        <input type="number" id="font-size" min="8" max="72" value="20">
+        <br>
+        <label for="font-align">font alignment</label>
+        <select id="font-align">
+          <option value="">select a alignment</option>
+          <option value="left">Left</option>
+          <option value="center">Center</option>
+          <option value="right">Right</option>
+        </select>
+      </div>
+      <!-- Image effects controls -->
+      <div class="image-effects card">
+        <h2>Image effects</h2>
+        <label><input type="checkbox" id="sepia"> sepia effect</label><br>
+        <label><input type="checkbox" id="grayscale"> grayscale effect</label><br>
+        <label><input type="checkbox" id="blur"> blur effect</label>
+      </div>
+      <!-- Action buttons -->
+      <div class="button-row">
+        <button id="apply-btn">Apply</button>
+        <button id="reset-btn">Reset</button>
+      </div>
+    </section>
+  </div>
+  <!-- JavaScript functionality for the editor -->
+  <script src="Functionality.js"></script>
 </body>
+
 </html>
